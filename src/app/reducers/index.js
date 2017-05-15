@@ -1,3 +1,11 @@
-import counter from './counter';
+import posts from './posts';
+import filterPosts from './filter-posts';
+import selectedPost from './selected-post';
 
-export default {counter};
+const rootReducer = {
+    posts,
+    filterPosts,
+    selectedPost
+};
+
+export default rootReducer;

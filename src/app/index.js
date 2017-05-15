@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
-// import './index.css';
+import App from './components/app';
 
 import { compose, createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -15,7 +14,7 @@ import reducers from './reducers'; // Or wherever you keep your reducers
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
-console.log(history);
+// console.log(history);
 
 // Build the middleware for intercepting and dispatching navigation actions
 const middleware = [routerMiddleware(history), thunk];
