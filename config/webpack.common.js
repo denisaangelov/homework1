@@ -101,7 +101,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'index.html',
-      title: 'React Blog - homework'
+      title: 'React Blog - homework1'
     }),
 
     new webpack.ProvidePlugin({

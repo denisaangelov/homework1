@@ -19,7 +19,7 @@ export default class Header extends React.Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <LinkContainer to="/new">
+                        <LinkContainer to="/post">
                             <NavItem eventKey={1}>New</NavItem>
                         </LinkContainer>
                         <LinkContainer to="/posts">

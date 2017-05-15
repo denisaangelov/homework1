@@ -28,6 +28,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
+    "dateformat": "^2.0.0",
     "history": "^4.6.1",
     "jquery": "^3.2.1",
     "prop-types": "^15.5.10",

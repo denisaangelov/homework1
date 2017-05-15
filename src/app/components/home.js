@@ -31,7 +31,7 @@ const styles = {
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
+        console.log(this.props.location.pathname.split('/')[2]);
     }
 
     render() {
@@ -45,13 +45,13 @@ export default class Home extends React.Component {
                         <FilterChooser {...this.props} />
                     </div>
                     <div className="col-xs-4 col-sm-2 col-md-2 col-lg-2" style={styles.col}>
-                        <LinkContainer to='/new'>
+                        <LinkContainer to='/post'>
                             <Button bsStyle="primary">New</Button>
                         </LinkContainer>
                     </div>
                 </div>
                 <div className='row'>
-                    <ListPosts />
+                    <ListPosts activePost={this.props.location.pathname.split('/')[2]} />
                 </div>
             </div>
         );

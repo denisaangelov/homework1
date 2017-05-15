@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import Home from '../home';
-import New from '../new';
+import Post from '../post';
 
 @withRouter
 @connect()
@@ -15,7 +15,7 @@ export default class Container extends React.Component {
             <div className='container'>
                 <div className='row'>
                     <Route path="/" component={Home} />
-                    <Route path="/new" component={New} />
+                    <Route path="/post/:id?" component={Post} />
                     <Route path="/posts" render={() => <div>postsp</div>} />
                 </div>
             </div>

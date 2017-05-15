@@ -1,7 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { SplitButton, MenuItem, FormControl } from 'react-bootstrap';
-
-import FieldGroup from './common/field-group';
 
 class FilterChooser extends React.Component { // = ({ filter, filterPosts }) =>
     constructor(props) {
@@ -10,7 +9,8 @@ class FilterChooser extends React.Component { // = ({ filter, filterPosts }) =>
 
     render() {
         return (
-            <FormControl componentClass="select">
+            <FormControl componentClass="select" onChange={(e) => this._handleOnChange(e)}>
+                <option value="All">All</option>
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
             </FormControl>
@@ -18,7 +18,8 @@ class FilterChooser extends React.Component { // = ({ filter, filterPosts }) =>
     }
 
     _handleOnChange = (e) => {
-        this.props.filterPosts(e.target.title);
+        console.log(e.target.value);
+        this.props.filterPosts(e.target.value);
     }
 };
 
