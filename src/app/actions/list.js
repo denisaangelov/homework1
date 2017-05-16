@@ -1,6 +1,9 @@
 //Create new post
 export const NEW_POST = 'NEW_POST';
 
+//Select post
+export const SELECT_POST = 'SELECT_POST';
+
 //Edit post
 export const EDIT_POST = 'EDIT_POST';
 

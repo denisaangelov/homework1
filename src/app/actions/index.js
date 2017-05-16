@@ -1,6 +1,6 @@
 let nextPostId = 15;
 
-import { NEW_POST, EDIT_POST, DELETE_POST, FILTER_POSTS } from './list';
+import { NEW_POST, SELECT_POST, EDIT_POST, DELETE_POST, FILTER_POSTS } from './list';
 
 export const newPost = (data) => ({
     type: NEW_POST,
@@ -8,6 +8,11 @@ export const newPost = (data) => ({
     data
 });
 
+
+export const selectPost = (post) => ({
+    type: SELECT_POST,
+    post
+});
 export const editPost = (post) => ({
     type: EDIT_POST,
     post

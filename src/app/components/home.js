@@ -17,7 +17,8 @@ const styles = {
 
 @connect(
     state => ({
-        filter: state.filterPosts
+        filter: state.filterPosts,
+        selectedPost: state.selectedPost
     }),
     dispatch => ({
         filterPosts: (filter) => {
