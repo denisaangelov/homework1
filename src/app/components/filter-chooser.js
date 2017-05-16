@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { SplitButton, MenuItem, FormControl } from 'react-bootstrap';
 
-class FilterChooser extends React.Component { // = ({ filter, filterPosts }) =>
+class FilterChooser extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -18,7 +18,6 @@ class FilterChooser extends React.Component { // = ({ filter, filterPosts }) =>
     }
 
     _handleOnChange = (e) => {
-        console.log(e.target.value);
         this.props.filterPosts(e.target.value);
     }
 };

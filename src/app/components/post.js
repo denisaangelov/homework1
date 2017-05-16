@@ -5,7 +5,7 @@ import { push } from 'react-router-redux';
 
 import { ButtonToolbar, Button, Form, FormGroup } from 'react-bootstrap';
 
-import { newPost } from '../actions';
+import { newPost, editPost } from '../actions';
 
 import FieldGroup from './common/field-group';
 
@@ -25,6 +25,9 @@ const compare = (a, b) => {
         newPost: (postData) => {
             dispatch(newPost(postData));
         },
+        editPost: (postData) => {
+            dispatch(editPost(postData));
+        },
         redirect: (url) => {
             dispatch(push(url));
         }
@@ -33,14 +36,14 @@ const compare = (a, b) => {
 export default class Home extends React.Component {
     static propTypes = {
         newPost: PropTypes.func.isRequired,
+        editPost: PropTypes.func.isRequired,
         redirect: PropTypes.func.isRequired
     };
 
     constructor(props) {
         super(props);
-        const post = this._filterPosts();
-        console.log(post);
-        const s = (post.length > 0) ? post[0] : {
+        this.state = {
+            id: '',
             title: '',
             author: '',
             text: '',
@@ -48,12 +51,22 @@ export default class Home extends React.Component {
             status: 'Active',
             date: new Date()
         };
-        this.state = s;
     }
 
-    _filterPosts = () => {
-        return this.props.posts.filter(post => post.id == this.props.match.params.id)
+    componentWillReceiveProps = (nextProps) => {
+        const post = this._filterPosts(nextProps);
+        if (post.length > 0)
+            this.setState(post[0]);
     }
+    componentWillMount = () => {
+
+    }
+    componentDidMount = () => {
+        const post = this._filterPosts(this.props);
+        if (post.length > 0)
+            this.setState(post[0]);
+    }
+
     render() {
         return (
             <div className="col-sm-6 col-md-6 col-lg-6">
@@ -83,6 +96,10 @@ export default class Home extends React.Component {
         );
     }
 
+    _filterPosts = (props) => {
+        return props.posts.filter(post => post.id == props.match.params.id)
+    }
+
     _handleOnChange = (e, field) => {
         this.setState({
             [field]: e.target.value
@@ -95,7 +112,8 @@ export default class Home extends React.Component {
             author: '',
             text: '',
             tags: '',
-            status: 'Active'
+            status: 'Active',
+            date: new Date()
         });
     }
 
@@ -105,12 +123,18 @@ export default class Home extends React.Component {
 
     _handleOnSubmit = (e) => {
         e.preventDefault();
-
-        this.props.newPost(this.state);
+        console.log(this.state.id);
+        if (this.state.id) {
+            this.props.editPost(this.state);
+            this.props.redirect(`/posts/${this.state.id}`);
+        }
+        else {
+            this.props.newPost(this.state);
+            this.props.redirect('/');
+        }
 
         this._handleReset();
 
-        // this.props.redirect('/');
     }
 }
 

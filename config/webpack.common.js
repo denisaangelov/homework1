@@ -76,21 +76,7 @@ module.exports = {
           }
           ]
         })
-      },
-      // {
-      //   test: /\.css$/,
-      //   include: 'app',
-      //   loader: 'raw-loader'
-      // },
-      // {
-      //   test: /\.css$/,
-      //   include: helpers.root('src', 'app'),
-      //   use: [
-      //     'style-loader',
-      //     'css-loader?modules',
-      //     'postcss-loader',
-      //   ],
-      // },
+      }
     ]
   },
 

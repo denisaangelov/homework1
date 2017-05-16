@@ -1,16 +1,11 @@
-let nextPostId = 0;
+let nextPostId = 15;
 
-import { GET_POSTS, NEW_POST, EDIT_POST, DELETE_POST, CHANGE_STATUS, FILTER_POSTS } from './list';
+import { NEW_POST, EDIT_POST, DELETE_POST, FILTER_POSTS } from './list';
 
 export const newPost = (data) => ({
     type: NEW_POST,
-    id: nextPostId++,
+    id: (data.id) ? data.id : nextPostId++,
     data
-});
-
-export const selectedPost = (post) => ({
-    type: EDIT_POST,
-    post
 });
 
 export const editPost = (post) => ({
@@ -18,19 +13,9 @@ export const editPost = (post) => ({
     post
 });
 
-export const changeStatus = (id, status) => ({
-    type: CHANGE_STATUS,
-    id,
-    status
-});
-
 export const deletePost = (id) => ({
     type: DELETE_POST,
     id
-});
-
-export const getPosts = () => ({
-    type: GET_POSTS
 });
 
 export const filterPosts = (filter) => ({

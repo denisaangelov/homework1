@@ -15,7 +15,7 @@ module.exports = webpackMerge(commonConfig, {
 
   output: {
     path: helpers.root('dist'),
-    publicPath: '/',  // necessary for HMR to know where to load the hot update chunks
+    publicPath: './',  // necessary for HMR to know where to load the hot update chunks
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },

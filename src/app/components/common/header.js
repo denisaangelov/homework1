@@ -1,11 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { withRouter } from 'react-router';
 
-@withRouter
 @connect()
 export default class Header extends React.Component {
     render() {
@@ -19,11 +17,11 @@ export default class Header extends React.Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <LinkContainer to="/post">
-                            <NavItem eventKey={1}>New</NavItem>
-                        </LinkContainer>
                         <LinkContainer to="/posts">
                             <NavItem eventKey={2}>All</NavItem>
+                        </LinkContainer>
+                        <LinkContainer to="/about">
+                            <NavItem eventKey={1}>About</NavItem>
                         </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
